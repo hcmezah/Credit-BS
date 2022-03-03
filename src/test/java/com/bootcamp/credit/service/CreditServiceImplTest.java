@@ -15,7 +15,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class CreditServiceImplTest {
-//https://github.com/yanfranco18/ProductService/blob/main/product/src/test/java/com/example/product/serviceTest/ProductServiceTest.java
     @Mock
     private static ICreditRepository repository;
 
@@ -29,8 +28,7 @@ class CreditServiceImplTest {
 
     @Test
     void getAllCreditsTest() {
-        //Flux<Credit> listFluxCredit=Flux.just(DataCredit.getDataCredit());
-        when(repository.findAll()).thenReturn(Flux.just(DataCredit.getDataCredit()));
+        when(service.getAllCredits()).thenReturn(Flux.just(DataCredit.getDataCredit()));
 
         Flux<Credit> response=service.getAllCredits();
         StepVerifier.create(response)
