@@ -43,4 +43,9 @@ public class CreditController {
                         .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
     }
 
+    @GetMapping("/numDoc/{id}")
+    public Flux<Credit> getCreditNumDoc(@PathVariable("id") String id){
+        return this.service.getCreditNumDoc(id);
+    }
+
 }

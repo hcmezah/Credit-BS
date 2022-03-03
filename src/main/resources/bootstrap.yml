@@ -1,7 +1,12 @@
+server:
+    port: 8085
 spring:
+    data:
+        mongodb:
+            uri: mongodb+srv://crover:bdCo-v95.@cluster0.nawut.mongodb.net/db_credit?retryWrites=true&w=majority
     application:
-        name: credit
-    cloud:
-        config:
-            enabled: true
-            uri: http://localhost:8090
+        name: credit-service
+    #cloud:
+        #config:
+            #enabled: true
+            #uri: http://localhost:8090

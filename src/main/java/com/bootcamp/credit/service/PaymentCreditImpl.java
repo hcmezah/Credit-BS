@@ -4,10 +4,12 @@ import com.bootcamp.credit.model.dto.Credit;
 import com.bootcamp.credit.model.dto.PaymentCredit;
 import com.bootcamp.credit.repository.IPaymentCreditRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
@@ -27,7 +29,7 @@ public class PaymentCreditImpl implements IPaymentCredit{
 
     @Override
     public Mono<PaymentCredit> createPaymentCredit(PaymentCredit paymentCredit) {
-        String today= LocalDateTime.now().toString();
+        LocalDate today= LocalDate.now();
         paymentCredit.setDate(today);
         return repository.save(paymentCredit);
     }
